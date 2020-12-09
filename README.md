@@ -1,1 +1,5 @@
 # Parallel-Image-Crop
+
+Image cropping is one of the most common image manipulation processes. It is done to change an image’s aspect ratio, to improve overall composition, or to remove any unwanted object or irrelevant noise.
+
+OpenCV does not have a specific function for image cropping and instead relies on python numpy array slicing, which makes a shallow copy of the original image, and thus is very fast. The runtime is in the range 409 - 414 ns for all three image sizes with python array slicing, and cannot be beaten by parallel implementations due to overhead for parallel executions. In addition to the parallel implementations (unified and explicit), a manual sequential implementation is also implemented as beachead that follows similar logic to our parallel implementations for fairer comparison in runtime performance. The results obtained by these implementations were verified against the results from python numpy array slicing to ensure they were correct. The results of the image cropping implementations on images of three sizes are compared: 1080p, 4k, and 8k. 
